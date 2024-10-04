@@ -1,0 +1,76 @@
+body {
+    background-color: #48416C;
+
+
+}
+
+.section-one {
+    background-color: #48416C;
+}
+
+/*FONTS*/
+@font-face {
+    font-family: BlockyFont;
+    src: url(BloxBrk-M7Ke.ttf)
+}
+
+@font-face {
+    font-family: BoldFont;
+    src: url(Profontwindows-L3amg.ttf);
+}
+
+/*FONTS*/
+
+h1 {
+    font-family: BlockyFont;
+    color: #EDC18D;
+    letter-spacing: 3px;
+}
+
+.title {
+    text-align: center;
+
+}
+
+
+.div-One {
+    background-color: #EDC18D;
+    padding: 15px;
+
+}
+
+.div-Two {
+    background-color: #EDC18D;
+    padding: 15px;
+}
+
+.div-Three {
+    background-color: #EDC18D;
+    padding: 15px;
+}
+
+.text1 {
+    font-family: BoldFont;
+
+}
+
+.text2 {
+    font-family: BoldFont;
+
+}
+
+.text3 {
+    font-family: BoldFont;
+
+}
+
+
+p {
+    font-family: BoldFont;
+    font-size: 20px;
+}
+
+
+div {
+    margin: 10px;
+}
