@@ -1,76 +1,125 @@
 body {
-    background-color: #48416C;
-
-
+  background-color: #48416c;
 }
 
 .section-one {
-    background-color: #48416C;
+  background-color: #48416c;
 }
 
 /*FONTS*/
 @font-face {
-    font-family: BlockyFont;
-    src: url(BloxBrk-M7Ke.ttf)
+  font-family: BlockyFont;
+  src: url(BloxBrk-M7Ke.ttf);
 }
 
 @font-face {
-    font-family: BoldFont;
-    src: url(Profontwindows-L3amg.ttf);
+  font-family: BoldFont;
+  src: url(Profontwindows-L3amg.ttf);
 }
 
 /*FONTS*/
 
 h1 {
-    font-family: BlockyFont;
-    color: #EDC18D;
-    letter-spacing: 3px;
+  font-family: BlockyFont;
+  color: #edc18d;
+  letter-spacing: 3px;
 }
 
 .title {
-    text-align: center;
-
+  text-align: center;
 }
 
-
 .div-One {
-    background-color: #EDC18D;
-    padding: 15px;
-
+  background-color: #edc18d;
+  padding: 15px;
+  border-radius: 25px;
 }
 
 .div-Two {
-    background-color: #EDC18D;
-    padding: 15px;
+  background-color: #edc18d;
+  padding: 15px;
+  border-radius: 25px;
 }
-
 .div-Three {
-    background-color: #EDC18D;
-    padding: 15px;
+  background-color: #edc18d;
+  padding: 15px;
+  border-radius: 25px;
 }
 
 .text1 {
-    font-family: BoldFont;
-
+  font-family: BoldFont;
 }
 
 .text2 {
-    font-family: BoldFont;
-
+  font-family: BoldFont;
 }
 
 .text3 {
-    font-family: BoldFont;
-
+  font-family: BoldFont;
 }
-
 
 p {
-    font-family: BoldFont;
-    font-size: 20px;
+  font-family: BoldFont;
+  font-size: 20px;
 }
 
-
 div {
-    margin: 10px;
+  margin: 10px;
+}
+
+#output {
+  width: 95%;
+  max-height: 200px; /* Set a max height for the scrollable area */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #48416c;
+  border: #555 1px;
+  color: #edc18d;
+}
+
+/* Optional: Customize the scrollbar */
+#output::-webkit-scrollbar {
+  width: 10px;
+}
+
+#output::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+#output::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.delete-btn {
+  background-color: #edc18d;
+  color: black;
+  border: none;
+  padding: 5px 5px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.delete-btn:hover {
+  background-color: #edc18d;
+}
+
+.delete-btn:active {
+  background-color: #edc18d;
+}
+
+.submit-btn {
+  background-color: #48416c;
+  color: white;
+  border: none;
+  padding: 5px 5px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.scroll-title {
+    color:#edc18d;
+    padding: 15px;
+    
 }

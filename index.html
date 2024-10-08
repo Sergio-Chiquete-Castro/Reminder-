@@ -1,100 +1,131 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, 
+    initial-scale=1.0"
+    />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, 
-    initial-scale=1.0">
-
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.css" />
 
     <title>[Remind ME] by Sergio</title>
+  </head>
 
-
-</head>
-
-<body>
-
-
-
+  <body>
     <div class="title">
-        <h1>
-            Remind Myself Notes
-        </h1>
+      <h1>Remind Myself Notes</h1>
     </div>
-
 
     <section class="section-one">
+      <div class="div-One">
+        <p>
+          Event:
+          <input type="text" id="userInput" placeholder="Type Here..." />
+        </p>
+      </div>
 
-        <div class="div-One">
-            <h2 class="text1">section 1: Name of Event </h2>
-            <form>
-                <label>
-                    <p>Event:</p>
-                </label>
-                <input type="text" placeholder="Assignment Name..">
+      <div class="div-Two">
+        <p>
+          Date Due:
+          <select id="monthInput">
+            <option>Jan</option>
+            <option>Feb</option>
+            <option>Mar</option>
+            <option>Apr</option>
+            <option>May</option>
+            <option>June</option>
+            <option>July</option>
+            <option>Aug</option>
+            <option>Sept</option>
+            <option>Oct</option>
+            <option>Nov</option>
+            <option>Dec</option>
+          </select>
 
-            </form>
-            </form>
-        </div>
+          <select id="dayInput">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+            <option>16</option>
+            <option>17</option>
+            <option>18</option>
+            <option>19</option>
+            <option>21</option>
+            <option>22</option>
+            <option>23</option>
+            <option>24</option>
+            <option>25</option>
+            <option>26</option>
+            <option>27</option>
+            <option>28</option>
+            <option>29</option>
+            <option>30</option>
+            <option>31</option>
+          </select>
+        </p>
+      </div>
 
+      <div class="div-Three">
+        <p class="text3">Add to screen</p>
 
-
-        <div class="div-Two">
-            <h2 class="text2">section 2: time of event</h2>
-
-
-            <label>
-                <p>Date Due: </p>
-            </label>
-
-            <form>
-
-
-                <select id="monthInput">
-                    <option> Jan </option>
-                    <option> Feb </option>
-                    <option> Mar</option>
-                    <option> Apr</option>
-                    <option> May</option>
-                    <option> June</option>
-                    <option> July</option>
-                    <option> Aug</option>
-                    <option> Sept</option>
-                    <option> Oct</option>
-                    <option> Nov</option>
-                    <option> Dec</option>
-
-                </select>
-
-                <input for="dayInput" type="number" min="1" max="31">
-
-
-            </form>
-        </div>
-
-        <div class="div-Three">
-
-            <form>
-                <label>
-                    <h2 class="text3">section 3: add to screen</h2>
-                </label>
-
-            </form>
-            <input type="submit">
-        </div>
+        <button class="submit-btn" onclick="displayInput()">Submit</button>
+      </div>
     </section>
 
-
-
-
     <div>
-        <p>
-            scroll view
-        </p>
+      <p class="scroll-title">Todays Agenda</p>
+      <p>-</p>
+      <p id="output"></p>
+
+      <script>
+        function displayInput() {
+          // Get the input values
+          var input = document.getElementById("userInput").value;
+          var month = document.getElementById("monthInput").value;
+          var day = document.getElementById("dayInput").value;
+
+          // Create a new div to contain the entry and delete button
+          var newEntryDiv = document.createElement("div");
+
+          // Create a new paragraph element to display the input
+          var newEntry = document.createElement("p");
+          newEntry.innerHTML =
+            input + " | <strong>Due:</strong> " + month + " " + day;
+
+          // Create the delete button
+          var deleteButton = document.createElement("button");
+          deleteButton.innerHTML = "Delete";
+          deleteButton.className = "delete-btn";
+          deleteButton.onclick = function () {
+            newEntryDiv.remove(); // Remove the entire div containing the entry and button
+          };
+
+          // Append the entry and delete button to the new div
+          newEntryDiv.appendChild(newEntry);
+          newEntryDiv.appendChild(deleteButton);
+
+          // Append the new div to the output div
+          document.getElementById("output").appendChild(newEntryDiv);
+
+          // Clear input fields after submitting
+          document.getElementById("userInput").value = "";
+          document.getElementById("dayInput").value = "";
+        }
+      </script>
     </div>
-
-
-</body>
-
+  </body>
 </html>
