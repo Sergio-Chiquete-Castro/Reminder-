@@ -35,7 +35,6 @@ h1 {
 }
 
 .div-Two {
-  width: 350px;
   height: 75px;
   display: flex;
   flex-direction: row;
@@ -51,34 +50,28 @@ h1 {
 
 .p-time {
   font-family: BoldFont;
+  font-weight: bold;
 }
 
 .p-date {
   font-family: BoldFont;
+  font-weight: bold;
 }
 
 select {
   box-sizing: border-box;
   border-radius: 5px;
-  border: 3px solid #ccc;
+  border: 3px solid #48416c;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
-}
-
-.text2 {
-  font-family: BoldFont;
 }
 
 .text1 {
   font-family: BoldFont;
   padding: 5px;
   text-align: center;
-}
-
-.text3 {
-  font-family: BoldFont;
-  padding: 5px;
+  font-weight: bold;
 }
 
 div {
@@ -94,8 +87,7 @@ div {
   background-color: #48416c;
   border: #555 1px;
   color: #edc18d;
-  border: 1px #edc18d solid;
-  border-radius: 30px;
+   border-radius: 30px;
 }
 
 /* Optional: Customize the scrollbar */
@@ -117,7 +109,7 @@ div {
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  background-color: #edc18d;
+  background-color: #999;
   color: whitesmoke;
   border: none;
   padding: 5px 5px;
@@ -125,21 +117,9 @@ div {
   border-radius: 5px;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 5px #999;
-}
-
-.delete-btn:hover {
-  background-color: #edc18d;
-}
-
-.delete-btn:hover {
-  background-color: #999;
-}
-.delete-btn :active {
-  background-color: #edc18d;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
+ }
+ 
+ 
 .submit-btn {
   display: inline-block;
   padding: 10px 20px;
@@ -149,10 +129,10 @@ div {
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: #edc18d;
+  background-color: #999;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 9px #888;
 }
 
 .submit-btn:hover {
@@ -161,17 +141,19 @@ div {
 
 .submit-btn:active {
   background-color: #edc18d;
-  box-shadow: 0 5px #666;
+  box-shadow: 0 9px #888;
   transform: translateY(4px);
 }
 .scroll-title {
   color: #edc18d;
-
   text-align: center;
-}
+   text-decoration: underline;
+   font-weight: bold;
+
+ }
 
 input[type="text"]:focus {
-  border: 3px solid #555;
+  border: 3px solid #48416c;
 }
 
 input[type="text"] {
@@ -180,12 +162,15 @@ input[type="text"] {
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
-  border: 3px solid #ccc;
+  border: 3px solid #48416c;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
 }
 
 input[type="time"] {
-  border: 3px solid #ccc;
+  border: 3px solid #48416c;
+  border-radius: 5px;
+
 }
+

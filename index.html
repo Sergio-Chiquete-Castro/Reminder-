@@ -107,11 +107,32 @@
           return JSON.parse(localStorage.getItem("entries")) || [];
         }
 
+        // Function to convert 24-hour time to 12-hour time
+        function convertTo12Hour(time) {
+          let [hours, minutes] = time.split(":");
+          let period = "AM";
+
+          hours = parseInt(hours);
+
+          if (hours >= 12) {
+            period = "PM";
+            if (hours > 12) hours -= 12;
+          } else if (hours === 0) {
+            hours = 12;
+          }
+
+          return `${hours}:${minutes} ${period}`;
+        }
+
         // Function to display an entry on the screen
         function displayEntry(entryText, month, day, time) {
           var newEntryDiv = document.createElement("div");
 
           var newEntry = document.createElement("p");
+
+          // Convert time to 12-hour format before displaying
+          var formattedTime = convertTo12Hour(time);
+
           newEntry.innerHTML =
             entryText +
             " | <strong>Due:</strong> " +
@@ -119,7 +140,7 @@
             " " +
             day +
             " at " +
-            time;
+            formattedTime;
 
           var deleteButton = document.createElement("button");
           deleteButton.innerHTML = "Delete";
