@@ -20,111 +20,166 @@
 
     <section class="section-one">
       <div class="div-One">
-        <p>
-          Event:
+        <p class="text1">
+          Event
           <input type="text" id="userInput" placeholder="Type Here..." />
         </p>
       </div>
 
       <div class="div-Two">
-        <p>
-          Date Due:
-          <select id="monthInput">
-            <option>Jan</option>
-            <option>Feb</option>
-            <option>Mar</option>
-            <option>Apr</option>
-            <option>May</option>
-            <option>June</option>
-            <option>July</option>
-            <option>Aug</option>
-            <option>Sept</option>
-            <option>Oct</option>
-            <option>Nov</option>
-            <option>Dec</option>
-          </select>
+        <div class="div-date">
+          <p class="p-date">
+            Due:
+            <select id="monthInput">
+              <option>Oct</option>
+              <option>Jan</option>
+              <option>Feb</option>
+              <option>Mar</option>
+              <option>Apr</option>
+              <option>May</option>
+              <option>June</option>
+              <option>July</option>
+              <option>Aug</option>
+              <option>Sept</option>
+              <option>Oct</option>
+              <option>Nov</option>
+              <option>Dec</option>
+            </select>
 
-          <select id="dayInput">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-            <option>13</option>
-            <option>14</option>
-            <option>15</option>
-            <option>16</option>
-            <option>17</option>
-            <option>18</option>
-            <option>19</option>
-            <option>21</option>
-            <option>22</option>
-            <option>23</option>
-            <option>24</option>
-            <option>25</option>
-            <option>26</option>
-            <option>27</option>
-            <option>28</option>
-            <option>29</option>
-            <option>30</option>
-            <option>31</option>
-          </select>
-        </p>
+            <select id="dayInput">
+              <option>13</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              <option>16</option>
+              <option>17</option>
+              <option>18</option>
+              <option>19</option>
+              <option>21</option>
+              <option>22</option>
+              <option>23</option>
+              <option>24</option>
+              <option>25</option>
+              <option>26</option>
+              <option>27</option>
+              <option>28</option>
+              <option>29</option>
+              <option>30</option>
+              <option>31</option>
+            </select>
+          </p>
+        </div>
+        <div class="div-time">
+          <p class="p-time">Time: <input type="time" id="time-due" /></p>
+        </div>
       </div>
 
       <div class="div-Three">
-        <p class="text3">Add to screen</p>
-
         <button class="submit-btn" onclick="displayInput()">Submit</button>
       </div>
     </section>
 
     <div>
       <p class="scroll-title">Todays Agenda</p>
-      <p>-</p>
+
       <p id="output"></p>
 
       <script>
-        function displayInput() {
-          // Get the input values
-          var input = document.getElementById("userInput").value;
-          var month = document.getElementById("monthInput").value;
-          var day = document.getElementById("dayInput").value;
+        // Function to save the data to localStorage
+        function saveToLocalStorage(entries) {
+          localStorage.setItem("entries", JSON.stringify(entries));
+        }
 
-          // Create a new div to contain the entry and delete button
+        // Function to get data from localStorage
+        function getFromLocalStorage() {
+          return JSON.parse(localStorage.getItem("entries")) || [];
+        }
+
+        // Function to display an entry on the screen
+        function displayEntry(entryText, month, day, time) {
           var newEntryDiv = document.createElement("div");
 
-          // Create a new paragraph element to display the input
           var newEntry = document.createElement("p");
           newEntry.innerHTML =
-            input + " | <strong>Due:</strong> " + month + " " + day;
+            entryText +
+            " | <strong>Due:</strong> " +
+            month +
+            " " +
+            day +
+            " at " +
+            time;
 
-          // Create the delete button
           var deleteButton = document.createElement("button");
           deleteButton.innerHTML = "Delete";
           deleteButton.className = "delete-btn";
+
+          // Delete button functionality
           deleteButton.onclick = function () {
-            newEntryDiv.remove(); // Remove the entire div containing the entry and button
+            newEntryDiv.remove();
+            deleteFromLocalStorage(entryText, month, day, time); // Remove from localStorage as well
           };
 
-          // Append the entry and delete button to the new div
           newEntryDiv.appendChild(newEntry);
           newEntryDiv.appendChild(deleteButton);
 
-          // Append the new div to the output div
           document.getElementById("output").appendChild(newEntryDiv);
+        }
+
+        // Function to delete an entry from localStorage
+        function deleteFromLocalStorage(entryText, month, day, time) {
+          var entries = getFromLocalStorage();
+          var updatedEntries = entries.filter(function (entry) {
+            return !(
+              entry.text === entryText &&
+              entry.month === month &&
+              entry.day === day &&
+              entry.time === time
+            );
+          });
+          saveToLocalStorage(updatedEntries);
+        }
+
+        // Function to display input from the user
+        function displayInput() {
+          var input = document.getElementById("userInput").value;
+          var month = document.getElementById("monthInput").value;
+          var day = document.getElementById("dayInput").value;
+          var time = document.getElementById("time-due").value;
+
+          if (input === "" || time === "") return; // Avoid adding empty inputs
+
+          // Display the entry on the screen
+          displayEntry(input, month, day, time);
+
+          // Save to localStorage
+          var entries = getFromLocalStorage();
+          entries.push({ text: input, month: month, day: day, time: time });
+          saveToLocalStorage(entries);
 
           // Clear input fields after submitting
           document.getElementById("userInput").value = "";
-          document.getElementById("dayInput").value = "";
+          document.getElementById("time-due").value = "";
         }
+
+        // Load and display saved entries from localStorage when the page loads
+        window.onload = function () {
+          var savedEntries = getFromLocalStorage();
+          savedEntries.forEach(function (entry) {
+            displayEntry(entry.text, entry.month, entry.day, entry.time);
+          });
+        };
       </script>
     </div>
   </body>

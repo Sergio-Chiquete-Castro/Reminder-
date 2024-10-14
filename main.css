@@ -31,36 +31,54 @@ h1 {
 
 .div-One {
   background-color: #edc18d;
-  padding: 15px;
-  border-radius: 25px;
+  border-radius: 15px;
 }
 
 .div-Two {
+  width: 350px;
+  height: 75px;
+  display: flex;
+  flex-direction: row;
   background-color: #edc18d;
-  padding: 15px;
-  border-radius: 25px;
-}
-.div-Three {
-  background-color: #edc18d;
-  padding: 15px;
-  border-radius: 25px;
+  border-radius: 15px;
 }
 
-.text1 {
+.div-date {
+}
+
+.div-time {
+}
+
+.p-time {
   font-family: BoldFont;
+}
+
+.p-date {
+  font-family: BoldFont;
+}
+
+select {
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
 }
 
 .text2 {
   font-family: BoldFont;
 }
 
-.text3 {
+.text1 {
   font-family: BoldFont;
+  padding: 5px;
+  text-align: center;
 }
 
-p {
+.text3 {
   font-family: BoldFont;
-  font-size: 20px;
+  padding: 5px;
 }
 
 div {
@@ -69,18 +87,20 @@ div {
 
 #output {
   width: 95%;
-  max-height: 200px; /* Set a max height for the scrollable area */
+  max-height: 6%; /* Set a max height for the scrollable area */
   overflow-y: auto; /* Enable vertical scrolling */
   padding: 10px;
   margin-top: 10px;
   background-color: #48416c;
   border: #555 1px;
   color: #edc18d;
+  border: 1px #edc18d solid;
+  border-radius: 30px;
 }
 
 /* Optional: Customize the scrollbar */
 #output::-webkit-scrollbar {
-  width: 10px;
+  width: 15px;
 }
 
 #output::-webkit-scrollbar-thumb {
@@ -93,33 +113,79 @@ div {
 }
 
 .delete-btn {
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
   background-color: #edc18d;
-  color: black;
+  color: whitesmoke;
   border: none;
   padding: 5px 5px;
-  font-size: 14px;
+  font-size: 10px;
   border-radius: 5px;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px #999;
 }
 
 .delete-btn:hover {
   background-color: #edc18d;
 }
 
-.delete-btn:active {
+.delete-btn:hover {
+  background-color: #999;
+}
+.delete-btn :active {
   background-color: #edc18d;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
-
 .submit-btn {
-  background-color: #48416c;
-  color: white;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #edc18d;
   border: none;
-  padding: 5px 5px;
-  font-size: 14px;
-  border-radius: 5px;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
 }
 
+.submit-btn:hover {
+  background-color: #999;
+}
+
+.submit-btn:active {
+  background-color: #edc18d;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 .scroll-title {
-    color:#edc18d;
-    padding: 15px;
-    
+  color: #edc18d;
+
+  text-align: center;
+}
+
+input[type="text"]:focus {
+  border: 3px solid #555;
+}
+
+input[type="text"] {
+  border-radius: 15px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type="time"] {
+  border: 3px solid #ccc;
 }
